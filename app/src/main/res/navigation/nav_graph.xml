@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.mobile.ddd.FirstFragment"
+        android:label="Geziler"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_AddGeziFragment"
+            app:destination="@id/AddGeziFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_GeziDetayFragment"
+            app:destination="@id/GeziDetayFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/AddGeziFragment"
+        android:name="com.mobile.ddd.AddGeziFragment"
+        android:label="Gezi Ekle "
+        tools:layout="@layout/fragment_add_gezi">
+
+        <action
+            android:id="@+id/action_AddGeziFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GeziDetayFragment"
+        android:name="com.mobile.ddd.FragmentGeziDetay"
+        android:label="Gezi Detay"
+        tools:layout="@layout/fragment_gezi_detay">
+
+        <action
+            android:id="@+id/action_GeziDetayFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_GeziDetayFragment_to_GeziUpdateFragment"
+            app:destination="@id/gezi_update_fragment">
+            <argument
+                android:name="geziId"
+                app:argType="integer"/>
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/gezi_update_fragment"
+        android:name="com.mobile.ddd.gezi_update_fragment"
+        android:label="Gezi Düzenle"
+        tools:layout="@layout/fragment_gezi_update_fragment">
+        <argument
+            android:name="geziId"
+            app:argType="integer"/>
+
+
+    </fragment>
+
+
+</navigation>
